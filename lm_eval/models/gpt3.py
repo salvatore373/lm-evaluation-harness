@@ -90,7 +90,7 @@ class GPT3LM(BaseLM):
 
     @property
     def max_length(self):
-        return 4097
+        return 4095
 
     @property
     def max_gen_toks(self):
