@@ -41,11 +41,15 @@ def oa_completion(**kwargs):
     Retry with back-off until they respond
     """
     import openai
+    openai.api_type = "azure"
+    openai.api_key = os.environ['OPENAI_AZURE_API_KEY']
+    openai.api_base = os.environ['OPENAI_AZURE_API_BASE']
+    openai.api_version = "2023-05-15"
 
     backoff_time = 3
     while True:
         try:
-            return openai.Completion.create(**kwargs)
+            return openai.Completion.create(deployment_id='misc-35', **kwargs)
         except openai.error.OpenAIError:
             import traceback
 
@@ -67,8 +71,6 @@ class GPT3LM(BaseLM):
         """
         super().__init__()
 
-        import openai
-
         self.engine = engine
         self.tokenizer = transformers.GPT2TokenizerFast.from_pretrained("gpt2")
 
@@ -82,17 +84,13 @@ class GPT3LM(BaseLM):
             ["<|endoftext|>"]
         )[0]
 
-        # Read from environment variable OPENAI_API_SECRET_KEY
-        openai.api_key = os.environ["OPENAI_API_SECRET_KEY"]
-
     @property
     def eot_token_id(self):
         return self.tokenizer.eos_token_id
 
     @property
     def max_length(self):
-        # Note: the OpenAI API supports up to 2049 tokens, with the first token being the first input token
-        return 2048
+        return 4097
 
     @property
     def max_gen_toks(self):
