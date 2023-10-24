@@ -1,0 +1,45 @@
+{
+  "results": {
+    "arc_challenge_mt_es": {
+      "acc": 0.2794871794871795,
+      "acc_stderr": 0.013124855972633706,
+      "acc_norm": 0.3247863247863248,
+      "acc_norm_stderr": 0.013696582779193474
+    },
+    "hendrycksTest_mt_es": {
+      "acc": 0.2825938566552901,
+      "acc_stderr": 0.011767748159520131,
+      "acc_norm": 0.2839590443686007,
+      "acc_norm_stderr": 0.011784909352615553
+    },
+    "hellaswag_mt_es": {
+      "acc": 0.40558992959248985,
+      "acc_stderr": 0.00507162755117986,
+      "acc_norm": 0.5322167697887775,
+      "acc_norm_stderr": 0.005153796819046912
+    },
+    "truthfulqa_mc_mt_es": {
+      "mc1": 0.2623574144486692,
+      "mc1_stderr": 0.015671355158477732,
+      "mc2": 0.4217777169043652,
+      "mc2_stderr": 0.014765224938360634
+    }
+  },
+  "versions": {
+    "arc_challenge_mt_es": 0,
+    "hendrycksTest_mt_es": 0,
+    "hellaswag_mt_es": 0,
+    "truthfulqa_mc_mt_es": 1
+  },
+  "config": {
+    "model": "hf-causal-experimental",
+    "model_args": "pretrained=stabilityai/stablelm-3b-4e1t,dtype=bfloat16,trust_remote_code=True,use_fast=True",
+    "num_fewshot": 0,
+    "batch_size": 4,
+    "device": null,
+    "no_cache": false,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}
