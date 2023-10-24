@@ -7,6 +7,7 @@ import lm_eval.base
 from . import superglue
 from . import glue
 from . import arc
+from . import arc_multilingual
 from . import coqa
 from . import race
 from . import webqs
@@ -15,6 +16,7 @@ from . import wsc273
 from . import winogrande
 from . import quac
 from . import hellaswag
+from . import hellaswag_multilingual
 from . import swag
 from . import openbookqa
 from . import squad
@@ -38,6 +40,7 @@ from . import drop
 from . import unscramble
 from . import logiqa
 from . import hendrycks_test
+from . import hendrycks_test_multilingual
 from . import hendrycks_math
 from . import cbt
 from . import lambada_cloze
@@ -46,6 +49,7 @@ from . import wikitext
 from . import lambada_multilingual
 from . import mutual
 from . import truthfulqa
+from . import truthfulqa_multilingual
 from . import blimp
 from . import asdiv
 from . import gsm8k
@@ -128,9 +132,13 @@ TASK_REGISTRY = {
     "triviaqa": triviaqa.TriviaQA,
     "arc_easy": arc.ARCEasy,
     "arc_challenge": arc.ARCChallenge,
+    # Key: `arc_challenge_mt_{lang}`
+    **arc_multilingual.create_tasks(),
     # "quac": quac.QuAC, # not implemented yet
     "logiqa": logiqa.LogiQA,
     "hellaswag": hellaswag.HellaSwag,
+    # Key: `hellaswag_mt_{lang}`
+    **hellaswag_multilingual.create_tasks(),
     "swag": swag.SWAG,
     "openbookqa": openbookqa.OpenBookQA,
     "squad2": squad.SQuAD2,
@@ -153,6 +161,8 @@ TASK_REGISTRY = {
     "ethics_utilitarianism": hendrycks_ethics.EthicsUtilitarianism,
     "ethics_virtue": hendrycks_ethics.EthicsVirtue,
     "truthfulqa_mc": truthfulqa.TruthfulQAMultipleChoice,
+    # Key: `truthfulqa_mc_mt_{lang}`
+    **truthfulqa_multilingual.create_tasks(),
     "truthfulqa_gen": truthfulqa.TruthfulQAGeneration,
     # dialogue
     "mutual": mutual.MuTual,
@@ -182,6 +192,8 @@ TASK_REGISTRY = {
     #   e.g. anli, arithmetic, openai_translations, harness_translations
     # hendrycksTest (57 tasks)
     **hendrycks_test.create_all_tasks(),
+    # Key: `hendrycksTest_mt_{lang}`
+    **hendrycks_test_multilingual.create_tasks(),
     # e.g. wmt14-fr-en
     **translation.create_tasks_from_benchmarks(gpt3_translation_benchmarks),
     # chef's selection, mostly wmt20

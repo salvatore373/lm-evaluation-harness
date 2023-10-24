@@ -1,0 +1,1 @@
+{"results": {"arc_challenge_mt_te": {"acc": 0.25526315789473686, "acc_norm": 0.2824561403508772, "acc_norm_stderr": 0.013339448488525172, "acc_stderr": 0.01291914064518063}}, "versions": {"arc_challenge_mt_te": 0}}

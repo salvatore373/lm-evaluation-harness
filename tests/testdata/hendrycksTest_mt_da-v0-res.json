@@ -1,0 +1,1 @@
+{"results": {"hendrycksTest_mt_da": {"acc": 0.2475389974254127, "acc_norm": 0.2585188550658791, "acc_norm_stderr": 0.003810017452799113, "acc_stderr": 0.003755732129731153}}, "versions": {"hendrycksTest_mt_da": 0}}

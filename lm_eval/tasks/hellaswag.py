@@ -68,7 +68,7 @@ class HellaSwag(MultipleChoiceTask):
         return text
 
     def doc_to_text(self, doc):
-        return doc["query"]
+        return doc["query"].rstrip()
 
     def should_decontaminate(self):
         return True

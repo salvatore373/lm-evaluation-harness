@@ -1,0 +1,1 @@
+{"results": {"truthfulqa_mc_mt_ne": {"mc1": 0.23255813953488372, "mc1_stderr": 0.015194932228268695, "mc2": 0.4499910488932337, "mc2_stderr": 0.004889057974543357}}, "versions": {"truthfulqa_mc_mt_ne": 1}}

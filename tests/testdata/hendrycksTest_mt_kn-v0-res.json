@@ -1,0 +1,1 @@
+{"results": {"hendrycksTest_mt_kn": {"acc": 0.24692994080749184, "acc_norm": 0.2554112554112554, "acc_norm_stderr": 0.004099146166578016, "acc_stderr": 0.004053402415013828}}, "versions": {"hendrycksTest_mt_kn": 0}}

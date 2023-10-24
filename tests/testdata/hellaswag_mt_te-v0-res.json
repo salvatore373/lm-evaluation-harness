@@ -1,0 +1,1 @@
+{"results": {"hellaswag_mt_te": {"acc": 0.2440394314534617, "acc_norm": 0.24564419990829894, "acc_norm_stderr": 0.004609018356165157, "acc_stderr": 0.004598822394228312}}, "versions": {"hellaswag_mt_te": 0}}
