@@ -2,6 +2,7 @@
 |                             Model                              | Average | ARC Challenge (es)<br>(acc_norm) | HellaSwag (es)<br>(acc_norm) | MMLU (es)<br>(acc) | TruthfulQA (es)<br>(mc2) |
 | -------------------------------------------------------------- | ------: | -------------------------------: | ---------------------------: | -----------------: | -----------------------: |
 | mistralai/Mistral-7B-v0.1                                      |   46.53 |                            40.00 |                        64.10 |              37.27 |                    44.75 |
+| /fsx/dakota/ckpts/spanish3b_prop_95k_hf                        |   41.15 |                            35.30 |                        63.42 |              26.76 |                    39.13 |
 | /fsx/dakota/orca/stablelm_instruct_xtokens_final_wd_round6p_hf |   41.09 |                            34.27 |                        53.13 |              29.62 |                    47.34 |
 | /fsx/dakota/ckpts/spanish3b_hf_60000                           |   41.04 |                            35.64 |                        61.43 |              26.76 |                    40.35 |
 | /fsx/dakota/orca/stablelm_spanish_instruct_hf                  |   40.80 |                            34.44 |                        54.32 |              31.47 |                    42.98 |
