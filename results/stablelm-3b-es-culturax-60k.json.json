@@ -1,0 +1,45 @@
+{
+  "results": {
+    "arc_challenge_mt_es": {
+      "acc": 0.31794871794871793,
+      "acc_stderr": 0.013620084384257172,
+      "acc_norm": 0.3606837606837607,
+      "acc_norm_stderr": 0.014044746572948866
+    },
+    "hellaswag_mt_es": {
+      "acc": 0.4820780883294218,
+      "acc_stderr": 0.005161210000345951,
+      "acc_norm": 0.6403883080861958,
+      "acc_norm_stderr": 0.004956775965173279
+    },
+    "truthfulqa_mc_mt_es": {
+      "mc1": 0.2332065906210393,
+      "mc1_stderr": 0.01506421435730994,
+      "mc2": 0.38216879570227075,
+      "mc2_stderr": 0.013947876928315282
+    },
+    "hendrycksTest_mt_es": {
+      "acc": 0.2546075085324232,
+      "acc_stderr": 0.011385643256200645,
+      "acc_norm": 0.2641638225255973,
+      "acc_norm_stderr": 0.011522764869682234
+    }
+  },
+  "versions": {
+    "arc_challenge_mt_es": 0,
+    "hellaswag_mt_es": 0,
+    "truthfulqa_mc_mt_es": 1,
+    "hendrycksTest_mt_es": 0
+  },
+  "config": {
+    "model": "hf-causal-experimental",
+    "model_args": "pretrained=/fsx/dakota/ckpts/spanish3b_culturax_hf_60000,dtype=bfloat16,use_accelerate=True,trust_remote_code=True",
+    "num_fewshot": 0,
+    "batch_size": 4,
+    "device": null,
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}
