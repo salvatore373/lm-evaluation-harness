@@ -1,6 +1,7 @@
 # Results
 |                             Model                              | Average | ARC Challenge (es)<br>(acc_norm) | HellaSwag (es)<br>(acc_norm) | MMLU (es)<br>(acc) | TruthfulQA (es)<br>(mc2) |
 | -------------------------------------------------------------- | ------: | -------------------------------: | ---------------------------: | -----------------: | -----------------------: |
+| clibrain/lince-mistral-7b-it-es                                |   48.53 |                            42.31 |                        65.51 |              41.57 |                    44.73 |
 | mistralai/Mistral-7B-v0.1                                      |   46.53 |                            40.00 |                        64.10 |              37.27 |                    44.75 |
 | /fsx/dakota/orca/stablelm_spanish_95k_instruct_rest_hf         |   43.04 |                            35.90 |                        64.95 |              31.47 |                    39.86 |
 | /fsx/dakota/ckpts/spanish3b_prop_95k_hf                        |   41.15 |                            35.30 |                        63.42 |              26.76 |                    39.13 |
