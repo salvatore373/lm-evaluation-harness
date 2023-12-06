@@ -169,16 +169,27 @@ class BaseLM(LM):
     # subclass must implement properties vocab_size, eot_token_id, max_gen_toks, batch_size, device, max_length.
     # TODO: enforce this somehow
 
+    def _encode_pair(self, context, continuation):
+        whole_enc = self.tok_encode(context + continuation)
+        whole_enc_len = len(whole_enc)
+        context_enc = self.tok_encode(context)
+        context_enc_len = len(context_enc)
+        if context_enc_len < whole_enc_len:
+            continuation_enc = whole_enc[context_enc_len:]
+        else:
+            continuation_enc = self.tok_encode(continuation)
+            continuation_enc_len = len(continuation_enc)
+            context_enc = whole_enc[:continuation_enc_len]
+        return context_enc, continuation_enc
+
     def loglikelihood(self, requests):
         new_reqs = []
         for context, continuation in requests:
             if context == "":
                 # end of text as context
-                context_enc = [self.eot_token_id]
+                context_enc, continuation_enc = [self.eot_token_id], self.tok_encode(continuation)
             else:
-                context_enc = self.tok_encode(context)
-
-            continuation_enc = self.tok_encode(continuation)
+                context_enc, continuation_enc = self._encode_pair(context, continuation)
 
             new_reqs.append(((context, continuation), context_enc, continuation_enc))
 
