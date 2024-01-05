@@ -1,0 +1,84 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.2832764505119454,
+      "acc_stderr": 0.013167478735134576,
+      "acc_norm": 0.3242320819112628,
+      "acc_norm_stderr": 0.013678810399518815
+    },
+    "arc_easy": {
+      "acc": 0.6376262626262627,
+      "acc_stderr": 0.009863468202583785,
+      "acc_norm": 0.5749158249158249,
+      "acc_norm_stderr": 0.01014396619571784
+    },
+    "boolq": {
+      "acc": 0.618960244648318,
+      "acc_stderr": 0.008493937524439336
+    },
+    "hellaswag": {
+      "acc": 0.46564429396534557,
+      "acc_stderr": 0.004977988452502638,
+      "acc_norm": 0.6160127464648476,
+      "acc_norm_stderr": 0.004853608805843893
+    },
+    "lambada_openai": {
+      "ppl": 7.370193615704812,
+      "ppl_stderr": 0.18822062326889274,
+      "acc": 0.5501649524548806,
+      "acc_stderr": 0.006930828902453044
+    },
+    "openbookqa": {
+      "acc": 0.244,
+      "acc_stderr": 0.01922673489361459,
+      "acc_norm": 0.354,
+      "acc_norm_stderr": 0.021407582047916447
+    },
+    "piqa": {
+      "acc": 0.7524483133841132,
+      "acc_stderr": 0.010069703966857104,
+      "acc_norm": 0.7437431991294886,
+      "acc_norm_stderr": 0.010185787831565051
+    },
+    "sciq": {
+      "acc": 0.897,
+      "acc_stderr": 0.00961683333969579,
+      "acc_norm": 0.845,
+      "acc_norm_stderr": 0.011450157470799471
+    },
+    "siqa": {
+      "acc": 0.3971340839303992,
+      "acc_stderr": 0.011072044556731084,
+      "acc_norm": 0.4257932446264074,
+      "acc_norm_stderr": 0.011188771652377867
+    },
+    "winogrande": {
+      "acc": 0.6101026045777427,
+      "acc_stderr": 0.013707547317008467
+    }
+  },
+  "versions": {
+    "arc_challenge": 0,
+    "arc_easy": 0,
+    "boolq": 1,
+    "hellaswag": 0,
+    "lambada_openai": 0,
+    "openbookqa": 0,
+    "piqa": 0,
+    "sciq": 0,
+    "siqa": 0,
+    "winogrande": 0
+  },
+  "config": {
+    "model": "gpt2",
+    "model_args": "pretrained=tiiuae/falcon-rw-1b,dtype=bfloat16,trust_remote_code=True,low_cpu_mem_usage=True,use_fast=False",
+    "num_fewshot": 0,
+    "batch_size": "8",
+    "batch_sizes": [],
+    "device": "cuda:6",
+    "no_cache": true,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}
