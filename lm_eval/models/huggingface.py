@@ -176,6 +176,7 @@ class HuggingFaceAutoLM(BaseLM):
             subfolder=subfolder,
             tokenizer=tokenizer,
             use_fast=use_fast,
+            trust_remote_code=trust_remote_code,
         )
         self.tokenizer.model_max_length = self.max_length
 
@@ -241,6 +242,7 @@ class HuggingFaceAutoLM(BaseLM):
             load_in_8bit=load_in_8bit,
             trust_remote_code=trust_remote_code,
             torch_dtype=torch_dtype,
+            attn_implementation="flash_attention_2",
         )
         return model
 
@@ -279,12 +281,14 @@ class HuggingFaceAutoLM(BaseLM):
         subfolder: str,
         tokenizer: Optional[str] = None,
         use_fast: bool = True,
+        trust_remote_code: Optional[bool] = False,
     ) -> transformers.PreTrainedTokenizer:
         """Returns a pre-trained tokenizer from a pre-trained tokenizer configuration."""
         tokenizer = self.AUTO_TOKENIZER_CLASS.from_pretrained(
             pretrained if tokenizer is None else tokenizer,
             revision=revision + ("/" + subfolder if subfolder is not None else ""),
             use_fast=use_fast,
+            trust_remote_code=trust_remote_code,
         )
         tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
@@ -440,6 +444,7 @@ class AutoCausalLM(HuggingFaceAutoLM):
         subfolder: str,
         tokenizer: Optional[str] = None,
         use_fast: bool = True,
+        trust_remote_code: Optional[bool] = False,
     ) -> transformers.PreTrainedTokenizer:
         tokenizer = super()._create_auto_tokenizer(
             pretrained=pretrained,
@@ -447,6 +452,7 @@ class AutoCausalLM(HuggingFaceAutoLM):
             subfolder=subfolder,
             tokenizer=tokenizer,
             use_fast=use_fast,
+            trust_remote_code=trust_remote_code,
         )
         tokenizer.padding_side = "left"
         return tokenizer
