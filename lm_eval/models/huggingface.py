@@ -147,18 +147,6 @@ class HuggingFaceAutoLM(BaseLM):
         assert isinstance(pretrained, str)
         assert isinstance(device, str)
         assert isinstance(batch_size, int)
-        if (
-            add_special_tokens is not None
-            and self.AUTO_MODEL_CLASS is transformers.AutoModelForCausalLM
-        ):
-            # TODO: Support evaluating causal models with special tokens. Currently,
-            # this is not possible because the `_loglikelihood_tokens()` method for
-            # causal LMs makes a no-special-tokens assumption given that contexts
-            # and labels/continuations are tokenized separately without special
-            # tokens, concatenated, and then processed as inputs.
-            assert (
-                not add_special_tokens
-            ), "Evaluating causal models with `add_special_tokens=True` is currently not supported."
 
         self._batch_size = batch_size  # TODO: Adaptive batch size
         self._max_gen_toks = max_gen_toks
@@ -176,6 +164,7 @@ class HuggingFaceAutoLM(BaseLM):
             subfolder=subfolder,
             tokenizer=tokenizer,
             use_fast=use_fast,
+            trust_remote_code=trust_remote_code,
         )
         self.tokenizer.model_max_length = self.max_length
 
@@ -241,6 +230,7 @@ class HuggingFaceAutoLM(BaseLM):
             load_in_8bit=load_in_8bit,
             trust_remote_code=trust_remote_code,
             torch_dtype=torch_dtype,
+            attn_implementation="flash_attention_2",
         )
         return model
 
@@ -279,12 +269,14 @@ class HuggingFaceAutoLM(BaseLM):
         subfolder: str,
         tokenizer: Optional[str] = None,
         use_fast: bool = True,
+        trust_remote_code: Optional[bool] = False,
     ) -> transformers.PreTrainedTokenizer:
         """Returns a pre-trained tokenizer from a pre-trained tokenizer configuration."""
         tokenizer = self.AUTO_TOKENIZER_CLASS.from_pretrained(
             pretrained if tokenizer is None else tokenizer,
             revision=revision + ("/" + subfolder if subfolder is not None else ""),
             use_fast=use_fast,
+            trust_remote_code=trust_remote_code,
         )
         tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
@@ -440,6 +432,7 @@ class AutoCausalLM(HuggingFaceAutoLM):
         subfolder: str,
         tokenizer: Optional[str] = None,
         use_fast: bool = True,
+        trust_remote_code: Optional[bool] = False,
     ) -> transformers.PreTrainedTokenizer:
         tokenizer = super()._create_auto_tokenizer(
             pretrained=pretrained,
@@ -447,6 +440,7 @@ class AutoCausalLM(HuggingFaceAutoLM):
             subfolder=subfolder,
             tokenizer=tokenizer,
             use_fast=use_fast,
+            trust_remote_code=trust_remote_code,
         )
         tokenizer.padding_side = "left"
         return tokenizer
