@@ -7,7 +7,7 @@ import numpy as np
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("file", help="directory to list", default="./results")
+parser.add_argument("file", help="Results file with MMMLU (Hendrycks Test) results")
 args = parser.parse_args()
 
 
