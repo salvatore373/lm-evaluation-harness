@@ -654,7 +654,7 @@
   },
   "config": {
     "model": "hf-causal-experimental",
-    "model_args": "pretrained=google/gemma-2b-it,dtype=auto,trust_remote_code=True,dtype=auto,trust_remote_code=True,use_fast=False",
+    "model_args": "pretrained=google/gemma-2b-it,dtype=auto,trust_remote_code=True,dtype=auto,trust_remote_code=True,use_fast=False,add_special_tokens=True",
     "num_fewshot": 0,
     "batch_size": 8,
     "device": "cuda",

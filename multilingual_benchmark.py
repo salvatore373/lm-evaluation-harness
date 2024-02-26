@@ -14,6 +14,7 @@ parser.add_argument("--device", type=str, default="cuda")
 parser.add_argument("--dtype", type=str, default="auto")
 parser.add_argument("--batch_size", type=int, default=8)
 parser.add_argument("--use-fast", action="store_true")
+parser.add_argument("--add-special-tokens", action="store_true")
 args = parser.parse_args()
 
 
@@ -27,7 +28,7 @@ def main():
             "--model",
             "hf-causal-experimental",
             "--model_args",
-            f"pretrained={args.model},trust_remote_code=True",
+            f"pretrained={args.model},trust_remote_code=True,add_special_tokens={args.add_special_tokens}",
             "--batch_size",
             f"{args.batch_size}",
             "--output_path",
