@@ -96,7 +96,8 @@ class LambadaOpenAI(LambadaBase):
     """
 
     VERSION = 0
-    DATASET_PATH = "EleutherAI/lambada_openai"
+    #DATASET_PATH = "EleutherAI/lambada_openai"
+    DATASET_PATH = "marcob/lambada_multilingual"
 
     def has_training_docs(self):
         return False

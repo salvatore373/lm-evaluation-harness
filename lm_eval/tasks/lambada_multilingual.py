@@ -55,12 +55,17 @@ class LambadaOpenAIMultilingualSpanish(LambadaOpenAI):
     DATASET_NAME = "es"
 
 
+class LambadaOpenAIMultilingualDutch(LambadaOpenAI):
+    VERSION = 0
+    DATASET_NAME = "nl"
+
 LANG_CLASSES = [
     LambadaOpenAIMultilingualEnglish,
     LambadaOpenAIMultilingualFrench,
     LambadaOpenAIMultilingualGerman,
     LambadaOpenAIMultilingualItalian,
     LambadaOpenAIMultilingualSpanish,
+    LambadaOpenAIMultilingualDutch,
 ]
 
 
