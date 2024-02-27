@@ -1,6 +1,6 @@
 """
 Usage:
-python multilingual_tabulate.py --dir "results/"
+python multilingual_benchmark_view.py --dir "results/"
 """
 
 import argparse
