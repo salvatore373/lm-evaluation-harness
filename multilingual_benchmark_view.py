@@ -86,7 +86,7 @@ def main(args):
         "hellaswag_mt_es": "acc_norm",
         "truthfulqa_mc_mt_es": "mc2",
         "hendrycksTest_mt_es": "acc",
-        "arc_challenge_mt_fr": "acc",
+        "arc_challenge_mt_fr": "acc_norm",
         "lambada_openai_mt_fr": "acc",
         "hellaswag_mt_fr": "acc_norm",
         "truthfulqa_mc_mt_fr": "mc2",
