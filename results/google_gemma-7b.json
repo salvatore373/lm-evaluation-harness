@@ -1,0 +1,84 @@
+{
+    "results": {
+        "arc_challenge": {
+            "acc": 0.5008532423208191,
+            "acc_stderr": 0.014611369529813272,
+            "acc_norm": 0.5290102389078498,
+            "acc_norm_stderr": 0.014586776355294323
+        },
+        "arc_easy": {
+            "acc": 0.8080808080808081,
+            "acc_stderr": 0.008080808080807968,
+            "acc_norm": 0.8055555555555556,
+            "acc_norm_stderr": 0.008121078550852043
+        },
+        "boolq": {
+            "acc": 0.8293577981651377,
+            "acc_stderr": 0.006579709644905507
+        },
+        "hellaswag": {
+            "acc": 0.603963353913563,
+            "acc_stderr": 0.004880726787988635,
+            "acc_norm": 0.806512646883091,
+            "acc_norm_stderr": 0.003942243077246972
+        },
+        "lambada_openai": {
+            "ppl": 3.462853764192695,
+            "ppl_stderr": 0.06779420113491882,
+            "acc": 0.6747525713176791,
+            "acc_stderr": 0.006526664414004577
+        },
+        "openbookqa": {
+            "acc": 0.324,
+            "acc_stderr": 0.02095055731247745,
+            "acc_norm": 0.452,
+            "acc_norm_stderr": 0.022279694107843428
+        },
+        "piqa": {
+            "acc": 0.7970620239390642,
+            "acc_stderr": 0.009383679003767336,
+            "acc_norm": 0.8128400435255713,
+            "acc_norm_stderr": 0.009100273290473535
+        },
+        "sciq": {
+            "acc": 0.954,
+            "acc_stderr": 0.0066278147173807166,
+            "acc_norm": 0.943,
+            "acc_norm_stderr": 0.007335175853706826
+        },
+        "siqa": {
+            "acc": 0.44268167860798363,
+            "acc_stderr": 0.011239482425741958,
+            "acc_norm": 0.4677584442169908,
+            "acc_norm_stderr": 0.011290523693989226
+        },
+        "winogrande": {
+            "acc": 0.7403314917127072,
+            "acc_stderr": 0.012322700705552673
+        }
+    },
+    "versions": {
+        "arc_challenge": 0,
+        "arc_easy": 0,
+        "boolq": 1,
+        "hellaswag": 0,
+        "lambada_openai": 0,
+        "openbookqa": 0,
+        "piqa": 0,
+        "sciq": 0,
+        "siqa": 0,
+        "winogrande": 0
+    },
+    "config": {
+        "model": "gpt2",
+        "model_args": "pretrained=google/gemma-7b,dtype=auto,trust_remote_code=True,low_cpu_mem_usage=True,use_fast=False",
+        "num_fewshot": 0,
+        "batch_size": "8",
+        "batch_sizes": [],
+        "device": "cuda:7",
+        "no_cache": true,
+        "limit": null,
+        "bootstrap_iters": 100000,
+        "description_dict": {}
+    }
+}

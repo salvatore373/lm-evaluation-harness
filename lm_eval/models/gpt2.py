@@ -32,6 +32,7 @@ class HFLM(BaseLM):
         load_in_8bit: Optional[bool] = False,
         trust_remote_code: Optional[bool] = False,
         dtype: Optional[Union[str, torch.dtype]] = "auto",
+        add_special_tokens: Optional[bool] = False,
     ):
         super().__init__()
 
@@ -97,6 +98,7 @@ class HFLM(BaseLM):
 
         self.model.eval()
 
+        self.add_special_tokens = add_special_tokens
         self.vocab_size = self.tokenizer.vocab_size
 
         # Validate batch_size
@@ -147,7 +149,7 @@ class HFLM(BaseLM):
         return self._device
 
     def tok_encode(self, string: str):
-        return self.tokenizer.encode(string, add_special_tokens=False)
+        return self.tokenizer.encode(string, add_special_tokens=self.add_special_tokens)
 
     def tok_decode(self, tokens):
         return self.tokenizer.decode(tokens)
