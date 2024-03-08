@@ -66,6 +66,7 @@ def main(args):
         "hellaswag_mt_pt": "HellaSwag✱ (PT)",
         "truthfulqa_mc_mt_pt": "TruthfulQA (MC) (PT)",
         "hendrycksTest_mt_pt": "Hendrycks Test (PT)",
+        "hendrycksTest-": "Hendrycks Test",
     }
     task2metric = {
         "arc_challenge": "acc_norm",
@@ -104,6 +105,7 @@ def main(args):
         "hellaswag_mt_pt": "acc_norm",
         "truthfulqa_mc_mt_pt": "mc2",
         "hendrycksTest_mt_pt": "acc",
+        "hendrycksTest-": "acc",
     }
     task_headers = []
     for task in sorted(task2name.keys()):
@@ -120,12 +122,28 @@ def main(args):
         # Compute mean accuracy
         sum = 0
         for task in sorted(task2name.keys()):
-            sum += data["results"][task][task2metric[task]]
+            if task == "hendrycksTest-":
+                i = []
+                # comptue average hendrycks
+                for key, item in data["results"].items():
+                    if key.startswith("hendrycksTest-"):
+                        i.append(item["acc"])
+                sum += np.mean(i)
+            else:
+                sum += data["results"][task][task2metric[task]]
         row.append(f"{(sum / len(task2name)) * 100.0:.2f}")
 
         for task in sorted(task2name.keys()):
-            # score = f"{data['results'][task]['acc'] * 100:.2f} ± {data['results'][task]['acc_stderr'] * 100:.2f}"
-            score = f"{data['results'][task][task2metric[task]] * 100:.2f}%"
+            if task == "hendrycksTest-":
+                # comptue average hendrycks
+                i = []
+                for key, item in data["results"].items():
+                    if key.startswith("hendrycksTest-"):
+                        i.append(item["acc"])
+                score = f"{np.mean(i) * 100:.2f}%"
+            else:
+                #  score = f"{data['results'][task]['acc'] * 100:.2f} ± {data['results'][task]['acc_stderr'] * 100:.2f}"
+                score = f"{data['results'][task][task2metric[task]] * 100:.2f}%"
             row.append(score)
 
         rows.append(row)
